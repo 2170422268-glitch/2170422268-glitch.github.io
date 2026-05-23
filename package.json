@@ -1,0 +1,18 @@
+{
+  "name": "zero-blog",
+  "version": "1.0.0",
+  "description": "ZERO博客 - 个人技术博客",
+  "type": "module",
+  "scripts": {
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "keywords": ["blog", "vitepress", "vue"],
+  "author": "ZERO",
+  "license": "MIT",
+  "dependencies": {
+    "vitepress": "^1.0.0",
+    "vue": "^3.4.0"
+  }
+}

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZERO博客 - 首页</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">ZERO博客</a>
+      <button class="menu-toggle" aria-label="切换菜单">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav">
+        <a href="index.html" class="active">首页</a>
+        <a href="#">归档</a>
+        <a href="about.html">关于</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="nav-overlay"></div>
+
+  <!-- Main Content -->
+  <div class="main-wrapper">
+    <div class="home-layout">
+      <!-- Article List -->
+      <section class="article-list">
+        <!-- Article 1 -->
+        <article class="article-card">
+          <img
+            class="card-cover"
+            src="https://picsum.photos/seed/js/800/400"
+            alt="JavaScript 异步编程"
+            loading="lazy"
+          >
+          <div class="card-body">
+            <div class="card-meta">
+              <span>2026-05-20</span>
+              <span class="tag">JavaScript</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post.html">深入理解 JavaScript 异步编程</a>
+            </h2>
+            <p class="card-excerpt">
+              从回调函数到 Promise，再到 async/await，JavaScript 的异步编程模式经历了多次演变。本文将带你深入理解这些概念，并通过实际示例掌握异步编程的精髓。
+            </p>
+            <div class="card-footer">
+              <a href="post.html" class="read-more">阅读更多</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 2 -->
+        <article class="article-card">
+          <img
+            class="card-cover"
+            src="https://picsum.photos/seed/css/800/400"
+            alt="CSS Grid 布局"
+            loading="lazy"
+          >
+          <div class="card-body">
+            <div class="card-meta">
+              <span>2026-05-15</span>
+              <span class="tag">CSS</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post.html">CSS Grid 布局完全指南</a>
+            </h2>
+            <p class="card-excerpt">
+              CSS Grid 是现代 Web 布局中最强大的工具之一。本文从基础概念到高级技巧，全面讲解 Grid 布局的使用方法，助你轻松应对各种复杂布局需求。
+            </p>
+            <div class="card-footer">
+              <a href="post.html" class="read-more">阅读更多</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 3 -->
+        <article class="article-card">
+          <img
+            class="card-cover"
+            src="https://picsum.photos/seed/vue/800/400"
+            alt="Vue3 组合式 API"
+            loading="lazy"
+          >
+          <div class="card-body">
+            <div class="card-meta">
+              <span>2026-05-10</span>
+              <span class="tag">Vue</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post.html">Vue 3 组合式 API 实战经验分享</a>
+            </h2>
+            <p class="card-excerpt">
+              组合式 API 是 Vue 3 最引人注目的新特性之一。本文分享在实际项目中使用组合式 API 的经验与最佳实践，帮助你写出更优雅、可维护的 Vue 代码。
+            </p>
+            <div class="card-footer">
+              <a href="post.html" class="read-more">阅读更多</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 4 -->
+        <article class="article-card">
+          <img
+            class="card-cover"
+            src="https://picsum.photos/seed/python/800/400"
+            alt="Python 装饰器"
+            loading="lazy"
+          >
+          <div class="card-body">
+            <div class="card-meta">
+              <span>2026-05-05</span>
+              <span class="tag">Python</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post.html">Python 装饰器：从入门到精通</a>
+            </h2>
+            <p class="card-excerpt">
+              装饰器是 Python 中强大而优雅的特性。本文通过大量实例，从函数装饰器到类装饰器，带你彻底掌握装饰器的原理与应用场景。
+            </p>
+            <div class="card-footer">
+              <a href="post.html" class="read-more">阅读更多</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 5 -->
+        <article class="article-card">
+          <img
+            class="card-cover"
+            src="https://picsum.photos/seed/git/800/400"
+            alt="Git 工作流"
+            loading="lazy"
+          >
+          <div class="card-body">
+            <div class="card-meta">
+              <span>2026-04-28</span>
+              <span class="tag">Git</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post.html">高效 Git 工作流与团队协作实践</a>
+            </h2>
+            <p class="card-excerpt">
+              合理的 Git 工作流能极大提升团队协作效率。本文介绍几种主流 Git 工作流模式，并分享在实际团队中落地执行的宝贵经验。
+            </p>
+            <div class="card-footer">
+              <a href="post.html" class="read-more">阅读更多</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Article 6 -->
+        <article class="article-card">
+          <img
+            class="card-cover"
+            src="https://picsum.photos/seed/react/800/400"
+            alt="React Hooks"
+            loading="lazy"
+          >
+          <div class="card-body">
+            <div class="card-meta">
+              <span>2026-04-20</span>
+              <span class="tag">React</span>
+            </div>
+            <h2 class="card-title">
+              <a href="post.html">React Hooks 进阶：自定义 Hook 设计模式</a>
+            </h2>
+            <p class="card-excerpt">
+              自定义 Hook 是 React 中复用状态逻辑的最佳方式。本文深入探讨自定义 Hook 的设计模式与最佳实践，帮助你构建可复用的逻辑单元。
+            </p>
+            <div class="card-footer">
+              <a href="post.html" class="read-more">阅读更多</a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <!-- Profile Widget -->
+        <div class="sidebar-widget profile-widget">
+          <img
+            class="avatar"
+            src="https://picsum.photos/seed/avatar/144/144"
+            alt="头像"
+          >
+          <h3 class="profile-name">ZERO</h3>
+          <p class="profile-bio">
+            全栈开发者，热爱技术分享。专注于 Web 开发、前端工程化与用户体验优化。
+          </p>
+        </div>
+
+        <!-- Tag Cloud Widget -->
+        <div class="sidebar-widget">
+          <h3 class="widget-title">标签云</h3>
+          <div class="tag-cloud">
+            <a href="#">JavaScript</a>
+            <a href="#">CSS</a>
+            <a href="#">Vue</a>
+            <a href="#">React</a>
+            <a href="#">Python</a>
+            <a href="#">Git</a>
+            <a href="#">TypeScript</a>
+            <a href="#">Node.js</a>
+            <a href="#">Docker</a>
+            <a href="#">Linux</a>
+            <a href="#">算法</a>
+            <a href="#">数据库</a>
+          </div>
+        </div>
+
+        <!-- Recent Posts Widget -->
+        <div class="sidebar-widget">
+          <h3 class="widget-title">近期文章</h3>
+          <ul class="recent-posts">
+            <li>
+              <a href="post.html">深入理解 JavaScript 异步编程</a>
+              <div class="recent-date">2026-05-20</div>
+            </li>
+            <li>
+              <a href="post.html">CSS Grid 布局完全指南</a>
+              <div class="recent-date">2026-05-15</div>
+            </li>
+            <li>
+              <a href="post.html">Vue 3 组合式 API 实战经验分享</a>
+              <div class="recent-date">2026-05-10</div>
+            </li>
+            <li>
+              <a href="post.html">Python 装饰器：从入门到精通</a>
+              <div class="recent-date">2026-05-05</div>
+            </li>
+            <li>
+              <a href="post.html">高效 Git 工作流与团队协作实践</a>
+              <div class="recent-date">2026-04-28</div>
+            </li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a href="index.html">首页</a>
+      <a href="#">归档</a>
+      <a href="about.html">关于</a>
+    </div>
+    <p>&copy; 2026 ZERO博客. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
+    const navOverlay = document.querySelector('.nav-overlay');
+
+    function openMenu() {
+      menuToggle.classList.add('active');
+      mainNav.classList.add('open');
+      navOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      menuToggle.classList.remove('active');
+      mainNav.classList.remove('open');
+      navOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    menuToggle.addEventListener('click', () => {
+      if (mainNav.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    navOverlay.addEventListener('click', closeMenu);
+
+    // Close menu when a nav link is clicked
+    mainNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+  </script>
+</body>
+</html>
