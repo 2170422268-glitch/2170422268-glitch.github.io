@@ -50,6 +50,7 @@ const { theme } = useData()
     </div>
   </section>
 
+  <!-- 💼 经历（暂时屏蔽）
   <section class="about-section">
     <h2>💼 经历</h2>
     <div class="timeline">
@@ -83,6 +84,7 @@ const { theme } = useData()
       </div>
     </div>
   </section>
+  -->
 
   <section class="about-section">
     <h2>📫 联系我</h2>
