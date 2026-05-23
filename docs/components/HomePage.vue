@@ -53,7 +53,7 @@
             <img class="avatar" src="/avatar.jpg" alt="头像" />
           </div>
           <h3 class="profile-name">ZERO</h3>
-          <p class="profile-bio">全栈开发者，热爱技术分享。专注于 Web 开发、前端工程化与用户体验优化。</p>
+          <p class="profile-bio">全栈开发者，热爱技术分享。联系邮箱：2170422268@qq.com</p>
         </div>
 
         <div class="sidebar-widget">

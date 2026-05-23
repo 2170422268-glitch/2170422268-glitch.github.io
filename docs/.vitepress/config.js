@@ -35,7 +35,7 @@ export default defineConfig({
 
     // 页脚
     footer: {
-      message: '用 ❤️ 和 Markdown 书写',
+      message: '用 ❤️ 和 Markdown 书写 · 联系邮箱：2170422268@qq.com',
       copyright: 'Copyright © 2026 ZERO博客',
     },
 

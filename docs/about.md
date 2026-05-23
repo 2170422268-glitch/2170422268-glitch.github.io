@@ -92,7 +92,7 @@ const { theme } = useData()
       如果你有任何问题、建议或者合作意向，欢迎通过以下方式联系我：
     </p>
     <p>
-      📧 邮箱：<a href="mailto:hello@zeroblog.com">hello@zeroblog.com</a><br>
+      📧 邮箱：<a href="mailto:2170422268@qq.com">2170422268@qq.com</a><br>
       🐙 GitHub：<a href="https://github.com" target="_blank">github.com/zeroblog</a><br>
       💬 微信：zero博客
     </p>
