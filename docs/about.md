@@ -12,7 +12,7 @@ const { theme } = useData()
   <div class="about-hero">
     <img
       class="about-avatar"
-      src="https://picsum.photos/seed/avatar/240/240"
+      src="/avatar.jpg"
       alt="头像"
     >
     <h1>ZERO</h1>
