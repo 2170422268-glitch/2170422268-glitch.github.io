@@ -7,6 +7,7 @@ export default defineConfig({
 
   head: [
     ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['link', { rel: 'preload', href: '/photos/6.jpg', as: 'image' }],
     ['meta', { name: 'theme-color', content: '#2563eb' }],
     ['meta', { property: 'og:title', content: 'ZERO博客' }],
     ['meta', { property: 'og:description', content: '个人技术博客 - 分享 Web 开发、前端工程化与用户体验优化' }],
