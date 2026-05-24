@@ -18,9 +18,9 @@ export default defineConfig({
 
     // 导航栏
     nav: [
-      { text: '首页', link: '/' },
-      { text: '归档', link: '/archives' },
-      { text: '关于', link: '/about' },
+      { text: '🏠 首页', link: '/' },
+      { text: '📚 归档', link: '/archives' },
+      { text: '👤 关于', link: '/about' },
     ],
 
     // 社交链接

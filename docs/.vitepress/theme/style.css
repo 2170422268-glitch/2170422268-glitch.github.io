@@ -88,8 +88,17 @@ html.dark .bg-parallax {
 
 /* ===== 导航栏 ===== */
 .VPNavBar {
-  background: var(--vp-c-bg) !important;
-  backdrop-filter: none !important;
+  background: rgba(248, 250, 252, 0.55) !important;
+  backdrop-filter: blur(16px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(200%) !important;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5) !important;
+}
+
+.dark .VPNavBar {
+  background: rgba(15, 23, 42, 0.55) !important;
+  backdrop-filter: blur(16px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(16px) saturate(200%) !important;
+  border-bottom: 1px solid rgba(51, 65, 85, 0.5) !important;
 }
 
 .VPNavBar .container {
@@ -103,18 +112,52 @@ html.dark .bg-parallax {
   letter-spacing: -0.5px;
 }
 
+/* 导航链接容器 */
+.VPNavBarMenu {
+  gap: 4px !important;
+}
+
+/* 导航链接 - 带图标和下划线动画 */
 .VPNavBarMenuLink {
+  position: relative !important;
   font-size: 0.95rem !important;
   font-weight: 500 !important;
   padding: 8px 16px !important;
-  border-radius: 6px !important;
-  transition: all 0.25s ease !important;
+  border-radius: 8px !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  color: var(--vp-c-text-2) !important;
 }
 
-.VPNavBarMenuLink:hover,
-.VPNavBarMenuLink.active {
+/* 下划线动画 - 从中间向两边展开 */
+.VPNavBarMenuLink::after {
+  content: '' !important;
+  position: absolute !important;
+  bottom: 2px !important;
+  left: 50% !important;
+  width: 0 !important;
+  height: 2.5px !important;
+  border-radius: 2px !important;
+  background: var(--vp-c-brand-1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  transform: translateX(-50%) !important;
+}
+
+.VPNavBarMenuLink:hover {
   color: var(--vp-c-brand-1) !important;
   background: var(--vp-c-brand-soft) !important;
+}
+
+.VPNavBarMenuLink:hover::after {
+  width: 60% !important;
+}
+
+.VPNavBarMenuLink.active {
+  color: var(--vp-c-brand-1) !important;
+  font-weight: 600 !important;
+}
+
+.VPNavBarMenuLink.active::after {
+  width: 70% !important;
 }
 
 /* ===== 覆盖 Vitepress 默认内容宽度限制 ===== */
@@ -452,11 +495,20 @@ html.dark .bg-parallax {
 }
 
 .sidebar-widget {
-  background: var(--vp-c-bg-soft);
+  background: rgba(248, 250, 252, 0.85);
+  backdrop-filter: blur(8px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
   border-radius: 12px;
   padding: 24px;
-  border: 1px solid var(--vp-c-border);
+  border: 1px solid rgba(226, 232, 240, 0.6);
   box-shadow: var(--vp-shadow-1);
+}
+
+.dark .sidebar-widget {
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(8px) saturate(160%);
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
+  border: 1px solid rgba(51, 65, 85, 0.6);
 }
 
 .sidebar-widget .widget-title {
