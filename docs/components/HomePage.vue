@@ -6,7 +6,7 @@
         <section class="gallery-section">
           <div class="gallery-header">
             <h2 class="gallery-title">📸 光影集</h2>
-            <p class="gallery-subtitle">用镜头记录生活的美好瞬间</p>
+            <p class="gallery-subtitle">你所热爱的就是你的生活</p>
           </div>
           <div class="gallery-grid">
             <div
