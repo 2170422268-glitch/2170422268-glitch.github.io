@@ -143,7 +143,7 @@ html.dark .bg-parallax {
   min-width: 0;
 }
 
-/* ===== 光影集 - 3D 转盘 ===== */
+/* ===== 光影集 - 原地轮播 ===== */
 .gallery-section {
   margin-bottom: 40px;
 }
@@ -165,51 +165,55 @@ html.dark .bg-parallax {
   color: var(--vp-c-text-3);
 }
 
-/* 3D 转盘容器 */
-.carousel-3d-wrap {
-  perspective: 1200px;
-  padding: 30px 0;
-  overflow: hidden;
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
 }
 
-.carousel-3d-stage {
+.gallery-item {
   position: relative;
-  width: 100%;
-  height: 280px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.carousel-3d-item {
-  position: absolute;
-  width: 260px;
-  height: 180px;
-  border-radius: 12px;
+  border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
-  backface-visibility: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  border: 2px solid var(--vp-c-border);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  aspect-ratio: 4 / 3;
 }
 
-.carousel-3d-item.active {
-  border-color: var(--vp-c-brand-1);
-  box-shadow: 0 4px 30px rgba(37, 99, 235, 0.25);
-}
-
-.carousel-3d-item img {
+.gallery-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  transition: transform 0.4s ease;
 }
 
-.carousel-3d-item:hover {
-  border-color: var(--vp-c-brand-2);
+.gallery-item:hover img {
+  transform: scale(1.08);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.gallery-icon {
+  font-size: 1.5rem;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-icon {
+  opacity: 1;
+  transform: scale(1);
 }
 
 /* 轮播指示器 */
@@ -217,7 +221,7 @@ html.dark .bg-parallax {
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 16px;
 }
 
 .carousel-dot {
@@ -848,13 +852,8 @@ html.dark .bg-parallax {
     font-size: 1.3rem;
   }
 
-  .carousel-3d-stage {
-    height: 220px;
-  }
-
-  .carousel-3d-item {
-    width: 200px;
-    height: 140px;
+  .gallery-grid {
+    gap: 8px;
   }
 
   .article-card .card-title {
