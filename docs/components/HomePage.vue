@@ -2,23 +2,40 @@
   <div class="home-page">
     <div class="home-layout">
       <div class="home-main">
-        <!-- ===== 相册画廊 ===== -->
+        <!-- ===== 光影集 - 自动轮播 ===== -->
         <section class="gallery-section">
           <div class="gallery-header">
             <h2 class="gallery-title">📸 光影集</h2>
             <p class="gallery-subtitle">用镜头记录生活的美好瞬间</p>
           </div>
-          <div class="gallery-grid">
-            <div
-              v-for="(photo, index) in photos"
-              :key="index"
-              class="gallery-item"
-              @click="openLightbox(index)"
-            >
-              <img :src="photo.src" :alt="photo.alt" loading="lazy" />
-              <div class="gallery-overlay">
-                <span class="gallery-icon">🔍</span>
+          <div
+            class="carousel"
+            @mouseenter="pauseCarousel"
+            @mouseleave="startCarousel"
+          >
+            <div class="carousel-track" :style="{ transform: `translateX(-${currentSlide * 100}%)` }">
+              <div
+                v-for="(photo, index) in photos"
+                :key="index"
+                class="carousel-slide"
+                @click="openLightbox(index)"
+              >
+                <img :src="photo.src" :alt="photo.alt" />
+                <div class="carousel-overlay">
+                  <span class="carousel-icon">🔍</span>
+                </div>
               </div>
+            </div>
+            <button class="carousel-btn carousel-prev" @click="prevSlide">‹</button>
+            <button class="carousel-btn carousel-next" @click="nextSlide">›</button>
+            <div class="carousel-dots">
+              <span
+                v-for="(photo, index) in photos"
+                :key="'dot-' + index"
+                class="carousel-dot"
+                :class="{ active: index === currentSlide }"
+                @click="goToSlide(index)"
+              ></span>
             </div>
           </div>
         </section>
@@ -87,7 +104,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import PhotoLightbox from './PhotoLightbox.vue'
 
 const lightboxVisible = ref(false)
@@ -97,6 +114,37 @@ function openLightbox(index) {
   lightboxIndex.value = index
   lightboxVisible.value = true
 }
+
+// ===== 轮播逻辑 =====
+const currentSlide = ref(0)
+let timer = null
+
+function nextSlide() {
+  currentSlide.value = (currentSlide.value + 1) % photos.length
+}
+
+function prevSlide() {
+  currentSlide.value = (currentSlide.value - 1 + photos.length) % photos.length
+}
+
+function goToSlide(index) {
+  currentSlide.value = index
+}
+
+function startCarousel() {
+  if (timer) return
+  timer = setInterval(nextSlide, 3000)
+}
+
+function pauseCarousel() {
+  if (timer) {
+    clearInterval(timer)
+    timer = null
+  }
+}
+
+onMounted(() => startCarousel())
+onBeforeUnmount(() => pauseCarousel())
 
 const photos = [
   { src: '/photos/1.jpg', alt: '照片 1' },
