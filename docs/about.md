@@ -93,8 +93,7 @@ const { theme } = useData()
     </p>
     <p>
       📧 邮箱：<a href="mailto:2170422268@qq.com">2170422268@qq.com</a><br>
-      🐙 GitHub：<a href="https://github.com" target="_blank">github.com/zeroblog</a><br>
-      💬 微信：zero博客
+      🐙 GitHub：<a href="https://github.com/2170422268-glitch" target="_blank">github.com/2170422268-glitch</a>
     </p>
   </section>
 </div>
