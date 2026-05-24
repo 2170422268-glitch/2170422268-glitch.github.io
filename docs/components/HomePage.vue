@@ -53,7 +53,7 @@
             <img class="avatar" src="/avatar.jpg" alt="头像" />
           </div>
           <h3 class="profile-name">ZERO ABYSS</h3>
-          <p class="profile-bio">计算机本科在读大学生，游戏领域大神(划掉),动画领域大神(划掉)。联系邮箱：2170422268@qq.com</p>
+          <p class="profile-bio">计算机本科在读大学生，文史哲爱好者，游戏领域大神(划掉),动画领域大神(划掉)。联系邮箱：2170422268@qq.com</p>
         </div>
 
         <div class="sidebar-widget">
