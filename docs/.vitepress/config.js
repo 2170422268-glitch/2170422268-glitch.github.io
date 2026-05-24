@@ -73,9 +73,10 @@ export default defineConfig({
   // 最后更新时间
   lastUpdated: true,
 
-  // 代码行号
+  // 代码行号 + 图片懒加载
   markdown: {
     lineNumbers: true,
+    image: { lazyLoading: true },
   },
 
   // Sitemap
