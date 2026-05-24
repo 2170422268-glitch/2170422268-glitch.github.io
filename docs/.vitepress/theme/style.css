@@ -448,7 +448,7 @@ html.dark .bg-parallax {
   flex-direction: column;
   gap: 24px;
   position: sticky;
-  top: calc(var(--vp-nav-height) + 32px);
+  top: calc(var(--vp-nav-height) + 8px);
 }
 
 .sidebar-widget {
