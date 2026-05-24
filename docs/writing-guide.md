@@ -197,7 +197,8 @@ onMounted(() => {
 </script>
 ```
 
-![Composition API 示意图](/images/composition-api.png)
+<!-- 图片示例：将图片放在 docs/public/images/ 目录后取消注释 -->
+<!-- ![Composition API 示意图](/images/composition-api.png) -->
 
 > Composition API 让逻辑复用变得更加优雅。
 
@@ -276,9 +277,9 @@ console.log('Hello World!')
 
 ### 第二部分
 
-可以插入图片：
+可以插入图片（将图片放在 docs/public/images/ 目录后取消注释）：
 
-![图片描述](/images/你的图片.jpg)
+<!-- ![图片描述](/images/你的图片.jpg) -->
 
 > 这是一段引用
 
