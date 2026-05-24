@@ -2,38 +2,44 @@
   <div class="home-page">
     <div class="home-layout">
       <div class="home-main">
-        <!-- ===== 光影集 - 原地轮播 ===== -->
+        <!-- ===== 光影集 - 3D 转盘 ===== -->
         <section class="gallery-section">
           <div class="gallery-header">
             <h2 class="gallery-title">📸 光影集</h2>
             <p class="gallery-subtitle">用镜头记录生活的美好瞬间</p>
           </div>
           <div
-            class="gallery-grid"
-            @mouseenter="pauseCarousel"
-            @mouseleave="startCarousel"
+            class="carousel-3d-wrap"
+            @mousemove="onMouseMove"
+            @mouseenter="onMouseEnter"
+            @mouseleave="onMouseLeave"
           >
             <div
-              v-for="(photo, index) in displayPhotos"
-              :key="index"
-              class="gallery-item"
-              @click="nextSlide"
-              @dblclick="openLightbox(index)"
+              class="carousel-3d-stage"
+              ref="stageRef"
+              :style="{ transform: `rotateY(${stageRotation}deg)` }"
             >
-              <img :src="photo.src" :alt="photo.alt" />
-              <div class="gallery-overlay">
-                <span class="gallery-icon">🔍</span>
+              <div
+                v-for="(photo, index) in photos"
+                :key="index"
+                class="carousel-3d-item"
+                :class="{ active: index === currentRound }"
+                :style="getItemStyle(index)"
+                @click="onItemClick(index)"
+                @dblclick="openLightbox(index)"
+              >
+                <img :src="photo.src" :alt="photo.alt" />
               </div>
             </div>
-          </div>
-          <div class="carousel-dots">
-            <span
-              v-for="(photo, index) in photos"
-              :key="'dot-' + index"
-              class="carousel-dot"
-              :class="{ active: index === currentRound }"
-              @click="goToRound(index)"
-            ></span>
+            <div class="carousel-dots">
+              <span
+                v-for="(photo, index) in photos"
+                :key="'dot-' + index"
+                class="carousel-dot"
+                :class="{ active: index === currentRound }"
+                @click="goToRound(index)"
+              ></span>
+            </div>
           </div>
         </section>
 
@@ -112,8 +118,11 @@ function openLightbox(index) {
   lightboxVisible.value = true
 }
 
-// ===== 原地轮播逻辑 =====
+// ===== 3D 转盘逻辑 =====
 const currentRound = ref(0)
+const rotation = ref(0)
+const isDragging = ref(false)
+const stageRef = ref(null)
 let timer = null
 
 const photos = [
@@ -122,18 +131,56 @@ const photos = [
   { src: '/photos/3.jpg', alt: '照片 3' },
 ]
 
-// 根据当前轮次计算每张图片显示的 src
-const displayPhotos = computed(() => {
-  const result = []
-  for (let i = 0; i < photos.length; i++) {
-    const srcIndex = (i + currentRound.value) % photos.length
-    result.push(photos[srcIndex])
-  }
-  return result
+// 每张照片的角度
+const angleStep = computed(() => 360 / photos.length)
+
+// 转盘整体旋转角度 = 当前轮次偏移 + 鼠标交互偏移
+const stageRotation = computed(() => {
+  const baseAngle = -(currentRound.value * angleStep.value)
+  const mouseOffset = isDragging.value ? rotation.value : 0
+  return baseAngle + mouseOffset
 })
 
-function nextSlide() {
-  currentRound.value = (currentRound.value + 1) % photos.length
+// 计算每张照片的变换样式
+function getItemStyle(index) {
+  const angle = index * angleStep.value
+  // 半径根据照片数量动态调整
+  const radius = photos.length <= 4 ? 180 : 220
+  return {
+    transform: `rotateY(${angle}deg) translateZ(${radius}px)`,
+  }
+}
+
+// 鼠标移动控制旋转
+function onMouseMove(e) {
+  if (!stageRef.value) return
+  const rect = stageRef.value.getBoundingClientRect()
+  const centerX = rect.left + rect.width / 2
+  const deltaX = e.clientX - centerX
+  // 映射到 -180 ~ 180 度
+  const targetRotation = (deltaX / rect.width) * 180
+  rotation.value = targetRotation
+}
+
+function onMouseEnter() {
+  isDragging.value = true
+  pauseCarousel()
+}
+
+function onMouseLeave() {
+  isDragging.value = false
+  rotation.value = 0
+  startCarousel()
+}
+
+// 点击切换
+function onItemClick(index) {
+  if (index === currentRound.value) {
+    // 点击当前照片切换到下一张
+    goToRound((index + 1) % photos.length)
+  } else {
+    goToRound(index)
+  }
 }
 
 function goToRound(index) {
@@ -142,7 +189,9 @@ function goToRound(index) {
 
 function startCarousel() {
   if (timer) return
-  timer = setInterval(nextSlide, 3000)
+  timer = setInterval(() => {
+    currentRound.value = (currentRound.value + 1) % photos.length
+  }, 3000)
 }
 
 function pauseCarousel() {
