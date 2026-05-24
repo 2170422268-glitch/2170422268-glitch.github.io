@@ -1,3 +1,19 @@
+/* ===== 背景图容器（淡化 + 视差交互） ===== */
+.bg-parallax {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url('/photos/6.jpg') center center / cover no-repeat;
+  opacity: 0.35;
+  transition: opacity 0.5s ease;
+  will-change: transform;
+  pointer-events: none;
+}
+
+html.dark .bg-parallax {
+  opacity: 0.18;
+}
+
 /* ===== ZERO博客 自定义主题样式 ===== */
 :root {
   --vp-c-brand-1: #2563eb;
